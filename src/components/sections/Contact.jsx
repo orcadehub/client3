@@ -63,7 +63,7 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Contact Us</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-[#1A34F0] mb-6">Contact Us</h2>
           <p className="text-xl text-gray-600">Ready to accelerate your training programs?</p>
         </motion.div>
 
@@ -76,7 +76,7 @@ const Contact = () => {
             className="space-y-8"
           >
             <div className="flex items-center gap-6">
-              <div className="bg-red-600 w-16 h-16 rounded-2xl flex items-center justify-center">
+              <div className="bg-[#1A34F0] w-16 h-16 rounded-2xl flex items-center justify-center">
                 <Phone className="w-8 h-8 text-white" />
               </div>
               <div>
@@ -86,7 +86,7 @@ const Contact = () => {
             </div>
 
             <div className="flex items-center gap-6">
-              <div className="bg-red-500 w-16 h-16 rounded-2xl flex items-center justify-center">
+              <div className="bg-[#1A34F0] w-16 h-16 rounded-2xl flex items-center justify-center">
                 <Mail className="w-8 h-8 text-white" />
               </div>
               <div>
@@ -96,7 +96,7 @@ const Contact = () => {
             </div>
 
             <div className="flex items-center gap-6">
-              <div className="bg-red-600 w-16 h-16 rounded-2xl flex items-center justify-center">
+              <div className="bg-[#1A34F0] w-16 h-16 rounded-2xl flex items-center justify-center">
                 <MapPin className="w-8 h-8 text-white" />
               </div>
               <div>
@@ -121,7 +121,7 @@ const Contact = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-colors"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#1A34F0] focus:ring-1 focus:ring-[#1A34F0] transition-colors"
                   placeholder="Your name"
                   required
                 />
@@ -133,7 +133,7 @@ const Contact = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-colors"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#1A34F0] focus:ring-1 focus:ring-[#1A34F0] transition-colors"
                   placeholder="your@email.com"
                   required
                 />
@@ -145,7 +145,7 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   rows="4"
-                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-colors resize-none"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#1A34F0] focus:ring-1 focus:ring-[#1A34F0] transition-colors resize-none"
                   placeholder="Tell us about your training needs..."
                   required
                 ></textarea>
@@ -153,7 +153,7 @@ const Contact = () => {
               <Button
                 type="submit"
                 size="lg"
-                className="w-full bg-red-600 hover:bg-red-700 text-white rounded-xl font-semibold transition-all duration-300"
+                className="w-full bg-[#1A34F0] hover:bg-[#182fc4] text-white rounded-xl font-semibold transition-all duration-300"
                 disabled={loading}
               >
                 {loading ? "Sending..." : "Send Message"}

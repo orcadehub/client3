@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-
+import Logo from './logo.jpeg'
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -11,12 +11,13 @@ const Header = () => {
     <header className="fixed top-0 w-full bg-white/90 backdrop-blur-lg border-b border-gray-200/80 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
+          
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             className="text-2xl font-bold text-red-600"
           >
-            AccelMinds Solutions
+            <img src={Logo} alt="asd" style={{height:'50px'}}/>
           </motion.div>
 
           {/* Desktop nav */}
