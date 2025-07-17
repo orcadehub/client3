@@ -1,41 +1,58 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 
-function Partners() {
-  const logos = [
-    'https://upload.wikimedia.org/wikipedia/commons/b/bc/BBC_logo.svg',
-    'https://upload.wikimedia.org/wikipedia/commons/6/65/Fast_Company_logo.svg',
-    'https://upload.wikimedia.org/wikipedia/commons/5/5c/CNBC_logo.svg',
-    'https://upload.wikimedia.org/wikipedia/commons/0/0d/Business_Insider_Logo.svg',
-    'https://upload.wikimedia.org/wikipedia/commons/2/22/The_Wall_Street_Journal_Logo.svg',
-    'https://upload.wikimedia.org/wikipedia/commons/1/19/Forbes_logo.svg',
-  ];
+// Partners with individual height and width
+const partners = [
+  { src: "/p1.JPG", url: "https://example1.com", height: "300px", width: "600px" },
+  { src: "/orcade.png", url: "https://www.orcadehub.com", height: "500px", width: "600px" },
+  { src: "/p2.JPG", url: "https://example2.com", height: "300px", width: "600px" },
+  { src: "/p3.JPG", url: "https://example2.com", height: "200px", width: "400px" },
+  
+];
 
+// Duplicate logos for infinite scroll
+const duplicated = [...partners, ...partners];
+
+const Partners = () => {
   return (
-    <section className="bg-[#0A1A4C] py-20 px-4">
-      <div className="max-w-7xl mx-auto text-center">
-        <h3 className="text-white text-3xl font-bold mb-10">Trusted By</h3>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 items-center justify-center">
-          {logos.map((logo, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
-              className="flex items-center justify-center"
+    <section className="bg-white py-16 overflow-hidden">
+      <div className="max-w-7xl mx-auto text-center mb-12">
+        <h3 className="text-[#0A1A4C] text-3xl font-bold">Trusted By</h3>
+      </div>
+
+      <motion.div
+        className="flex gap-16 items-center whitespace-nowrap"
+        animate={{ x: ["0%", "-50%"] }}
+        transition={{
+          repeat: Infinity,
+          duration: 10,
+          ease: "linear",
+        }}
+      >
+        {duplicated.map((partner, index) => (
+          <a
+            key={index}
+            href={partner.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-shrink-0"
+          >
+            <div
+              className="flex items-center justify-center bg-white"
+              style={{ height: partner.height, width: partner.width }}
             >
               <img
-                src={logo}
+                src={partner.src}
                 alt={`partner-${index}`}
-                className="max-h-12 w-auto object-contain grayscale hover:grayscale-0 transition duration-300"
+                className="object-contain transition duration-300"
+                style={{ maxHeight: "100%", maxWidth: "100%" }}
               />
-            </motion.div>
-          ))}
-        </div>
-      </div>
+            </div>
+          </a>
+        ))}
+      </motion.div>
     </section>
   );
-}
+};
 
 export default Partners;
