@@ -5,18 +5,18 @@ import { Star } from 'lucide-react';
 const testimonials = [
   {
     quote: "AccelMinds helped us scale our CRT programs across multiple campuses seamlessly. Their trainers are professional, punctual, and extremely effective.",
-    author: "Placement Head",
-    company: "Vignan University"
+    author: "Director",
+    company: "Pago Achievers"
   },
   {
     quote: "The training feedback from students improved significantly after we partnered with AccelMinds. They also customized a test portal for us that saved hours every week.",
     author: "CRT Coordinator",
-    company: "ANITS, Vizag"
+    company: "Talentio"
   },
   {
     quote: "We finally found a training partner that delivers what they promise - quality trainers and tech that just works.",
     author: "Director",
-    company: "EdTech Firm (Hyderabad)"
+    company: "ThinkOmega"
   }
 ];
 
