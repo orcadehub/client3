@@ -3,14 +3,13 @@ import { motion } from "framer-motion";
 
 // Partners with individual height and width
 const partners = [
-  { src: "/p1.JPG", url: "https://example1.com", height: "300px", width: "600px" },
-  { src: "/orcade.png", url: "https://www.orcadehub.com", height: "500px", width: "600px" },
-  { src: "/p2.JPG", url: "https://example2.com", height: "300px", width: "600px" },
-  { src: "/p3.JPG", url: "https://example2.com", height: "200px", width: "400px" },
-  
+  { src: "/p1.JPG", url: "https://example1.com" },
+  { src: "/orcade.png", url: "https://www.orcadehub.com" },
+  { src: "/p2.JPG", url: "https://example2.com" },
+  { src: "/p3.JPG", url: "https://example3.com" },
 ];
 
-// Duplicate logos for infinite scroll
+// Duplicate logos for seamless scroll
 const duplicated = [...partners, ...partners];
 
 const Partners = () => {
@@ -20,37 +19,39 @@ const Partners = () => {
         <h3 className="text-[#0A1A4C] text-3xl font-bold">Trusted By</h3>
       </div>
 
-      <motion.div
-        className="flex gap-16 items-center whitespace-nowrap"
-        animate={{ x: ["0%", "-50%"] }}
-        transition={{
-          repeat: Infinity,
-          duration: 10,
-          ease: "linear",
-        }}
-      >
-        {duplicated.map((partner, index) => (
-          <a
-            key={index}
-            href={partner.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-shrink-0"
-          >
-            <div
-              className="flex items-center justify-center bg-white"
-              style={{ height: partner.height, width: partner.width }}
+      <div className="relative overflow-hidden">
+        <motion.div
+          className="flex items-center gap-16 animate-scroll-track"
+          style={{ width: "max-content" }}
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{
+            repeat: Infinity,
+            ease: "linear",
+            duration: 20,
+          }}
+        >
+          {duplicated.map((partner, index) => (
+            <a
+              key={index}
+              href={partner.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-shrink-0"
             >
-              <img
-                src={partner.src}
-                alt={`partner-${index}`}
-                className="object-contain transition duration-300"
-                style={{ maxHeight: "100%", maxWidth: "100%" }}
-              />
-            </div>
-          </a>
-        ))}
-      </motion.div>
+              <div
+                className="flex items-center justify-center bg-white"
+                style={{ height: "200px", width: "300px" }}
+              >
+                <img
+                  src={partner.src}
+                  alt={`partner-${index}`}
+                  className="object-contain max-h-[80%] max-w-[80%]"
+                />
+              </div>
+            </a>
+          ))}
+        </motion.div>
+      </div>
     </section>
   );
 };
